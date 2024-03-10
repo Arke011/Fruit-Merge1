@@ -3,29 +3,27 @@ using UnityEngine;
 
 public class FruitMerge : MonoBehaviour
 {
-    public GameObject[] mergedFruits;  // Specify the GameObjects to be instantiated upon merging
+    public Fruitfall fall;
+    public Fruit fruit;
 
-    void OnCollisionEnter(Collision collision)
+
+    void Start()
     {
-        if (collision.collider.CompareTag("blueberry"))
-        {
-            MergeFruits(collision.collider.gameObject);
-        }
+        fall = FindObjectOfType<Fruitfall>();
+        fruit = FindObjectOfType<Fruit>();
     }
 
-    void MergeFruits(GameObject selectedFruit)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if both the current fruit and the selected fruit have the tag "blueberry"
-        if (gameObject.CompareTag("blueberry") && selectedFruit.CompareTag("blueberry"))
+        if (collision.gameObject.tag == gameObject.tag)
         {
-            // Destroy the colliding fruits
-            Destroy(selectedFruit.gameObject);
+            Vector2 destroyPos = transform.position; 
             Destroy(gameObject);
+            Instantiate(fruit.fruits[fruit.fruitToSpawn + 1], destroyPos, Quaternion.identity);
 
-            // Instantiate a specified GameObject upon merging
-            int randomIndex = Random.Range(0, mergedFruits.Length);
-            GameObject newMergedFruit = Instantiate(mergedFruits[randomIndex], transform.position, Quaternion.identity);
         }
     }
+
+    
 }
 

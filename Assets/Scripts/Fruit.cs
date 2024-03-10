@@ -5,13 +5,13 @@ public class Fruit : MonoBehaviour
 {
     public GameObject[] fruits;
     public int fruitSpawnY = 0;
-    private int fruitToSpawn = 0;
+    public int fruitToSpawn = 0;
     public bool canSpawnFruit = true;
 
     void SpawnRandomFruit()
     {
         
-        Vector3 spawnPos = new Vector3(0f, 4f, 0f);
+        Vector2 spawnPos = new Vector2(0f, 4f);
 
         Instantiate(fruits[fruitToSpawn], spawnPos, Quaternion.identity);
 

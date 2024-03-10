@@ -21,8 +21,8 @@ public class Fruitfall : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             GetComponent<Rigidbody2D>().gravityScale = 1;
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 spawnPos = new Vector3(mousePosition.x, 4f, 0f);
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 spawnPos = new Vector2(mousePosition.x, 4f);
             transform.position = spawnPos;
         }
 
