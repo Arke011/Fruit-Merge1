@@ -5,7 +5,8 @@ public class FruitMerge : MonoBehaviour
 {
     public Fruitfall fall;
     public Fruit fruit;
-
+    private bool hasMerged = false;
+    private Vector2 destroyPos;
 
     void Start()
     {
@@ -13,17 +14,22 @@ public class FruitMerge : MonoBehaviour
         fruit = FindObjectOfType<Fruit>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == gameObject.tag)
+        if (!hasMerged && collision.gameObject.tag == gameObject.tag)
         {
-            Vector2 destroyPos = transform.position; 
+            destroyPos = transform.position;
+            Debug.Log("Merging at position: " + destroyPos);
+            StartCoroutine(MergeFruitCoroutine());
             Destroy(gameObject);
-            Instantiate(fruit.fruits[fruit.fruitToSpawn + 1], destroyPos, Quaternion.identity);
-
+            hasMerged = true;
         }
     }
 
-    
+    IEnumerator MergeFruitCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Spawning merged fruit at position: " + destroyPos);
+        Instantiate(fruit.fruits[fruit.fruitToSpawn + 1], destroyPos, Quaternion.identity);
+    }
 }
-

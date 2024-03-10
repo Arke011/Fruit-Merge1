@@ -249,7 +249,9 @@ MonoBehaviour:
   - {fileID: 7223627868807398333, guid: 6b23de57cfc972a478fec46c87ee8793, type: 3}
   - {fileID: 8771573447706223679, guid: 584e59bf7843b194b8b68d767a9f718a, type: 3}
   - {fileID: 5931987920008407607, guid: 8711d3c11c126d04bb5d301aab91a9be, type: 3}
+  - {fileID: 9134802078032649958, guid: b058e6eb431e9e44793efdd9875b5c5e, type: 3}
   fruitSpawnY: 4
+  fruitToSpawn: 0
   canSpawnFruit: 1
 --- !u!4 &719062318
 Transform:
