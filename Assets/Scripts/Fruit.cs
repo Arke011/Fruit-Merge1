@@ -4,39 +4,34 @@ using UnityEngine;
 public class Fruit : MonoBehaviour
 {
     public GameObject[] fruits;
-    public int fruitSpawnY = 4;
-    private bool isFruitFalling = false;
+    public int fruitSpawnY = 0;
+    private int fruitToSpawn = 0;
     public bool canSpawnFruit = true;
 
     void SpawnRandomFruit()
     {
-        if (!isFruitFalling)
-            return;
-
         
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
-        Vector3 spawnPosition = new Vector3(mousePosition.x, fruitSpawnY, 0f);
+        Vector3 spawnPos = new Vector3(0f, 4f, 0f);
 
-        int randomIndex = Random.Range(0, fruits.Length);
-        GameObject newFruit = Instantiate(fruits[randomIndex], spawnPosition, Quaternion.identity);
-        isFruitFalling = false;
+        Instantiate(fruits[fruitToSpawn], spawnPos, Quaternion.identity);
+
+        if (fruitToSpawn >= 3)
+        {
+            fruitToSpawn = 0;
+        }
+        else
+        {
+            fruitToSpawn++;
+        }
+
         canSpawnFruit = false;
     }
 
     void Update()
     {
-        SpawnRandomFruit();
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canSpawnFruit)
+        if (canSpawnFruit)
         {
-            StartFruitFall();
+            SpawnRandomFruit();
         }
-    }
-
-    
-    public void StartFruitFall()
-    {
-        isFruitFalling = true;
     }
 }

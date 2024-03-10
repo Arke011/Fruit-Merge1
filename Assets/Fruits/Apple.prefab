@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6118833549292181001}
   - component: {fileID: 3366210019966823725}
-  - component: {fileID: 8967681929958682422}
   - component: {fileID: 8478673718918900480}
   - component: {fileID: -7744408040224565849}
   - component: {fileID: -1572806223266356050}
+  - component: {fileID: -3641334058092580311}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Apple
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7223627868807398333}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41, y: 0.22, z: 0}
+  m_LocalPosition: {x: -0.94284415, y: -2.950436, z: 0}
   m_LocalScale: {x: 0.58846503, y: 0.58846503, z: 0.58846503}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88,33 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &8967681929958682422
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7223627868807398333}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &8478673718918900480
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -175,3 +148,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b15a6ea931a344ebb093957140fafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fruit: {fileID: 0}
+--- !u!50 &-3641334058092580311
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223627868807398333}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
