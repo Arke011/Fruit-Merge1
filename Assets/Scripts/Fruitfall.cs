@@ -20,7 +20,7 @@ public class Fruitfall : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            GetComponent<Rigidbody2D>().gravityScale = 1;
+            GetComponent<Rigidbody2D>().gravityScale = 2;
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 spawnPos = new Vector2(mousePosition.x, 4f);
             transform.position = spawnPos;
