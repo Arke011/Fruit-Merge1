@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
     static public Vector2 spawnPos;
     static public bool mergeFruit = false;
     static public int whichFruit;
+    public Transform movementFruit;
+    public Transform mergedFruit;
+
+    
+    
+    
 
     void Start()
     {
@@ -22,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     void spawnFruit()
     {
-        if (canSpawn == true)
+        if (canSpawn)
         {
             StartCoroutine(spawnTimer());
             canSpawn = false;
@@ -31,17 +37,30 @@ public class GameManager : MonoBehaviour
 
     void mergeFruits()
     {
-        if (mergeFruit == true)
+        if (mergeFruit)
         {
             mergeFruit = false;
-            Instantiate(fruits[whichFruit + 1], spawnPos, fruits[0].rotation);
+            mergedFruit = Instantiate(fruits[whichFruit + 1], spawnPos, fruits[0].rotation);
+
+            // Assuming mergedFruit has a Rigidbody2D component
+            Rigidbody2D mergedFruitRb = mergedFruit.GetComponent<Rigidbody2D>();
+
+            if (mergedFruitRb != null)
+            {
+                // Set the gravity scale to 3
+                mergedFruitRb.gravityScale = 3f;
+            }
+            else
+            {
+                Debug.LogWarning("The mergedFruit object doesn't have a Rigidbody2D component.");
+            }
         }
     }
 
-    IEnumerator spawnTimer()
+
+    public IEnumerator spawnTimer()
     {
         yield return new WaitForSeconds(0.75f);
-        Instantiate(fruits[Random.Range(0, 4)], transform.position, fruits[0].rotation);
-        
+        movementFruit = Instantiate(fruits[Random.Range(0, 4)], transform.position, fruits[0].rotation);      
     }
 }
