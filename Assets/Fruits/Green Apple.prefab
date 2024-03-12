@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 3004771432972073356}
   - component: {fileID: 4250689189463282565}
   - component: {fileID: -2281308037018204090}
-  - component: {fileID: 9190349676253112722}
   - component: {fileID: 4613695031703952200}
   m_Layer: 0
   m_Name: Green Apple
-  m_TagString: GreenApple
+  m_TagString: 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,20 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781f51dc5be9ab1439d8b2658246958a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mergedFruits: []
---- !u!114 &9190349676253112722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9134802078032649958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b15a6ea931a344ebb093957140fafb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fruit: {fileID: 0}
 --- !u!50 &4613695031703952200
 Rigidbody2D:
   serializedVersion: 4

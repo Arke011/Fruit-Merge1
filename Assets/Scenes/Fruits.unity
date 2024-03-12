@@ -245,14 +245,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruits:
-  - {fileID: 9204115344120604217, guid: 3b9b1ffc3b39cfd41830a654049520cb, type: 3}
-  - {fileID: 7223627868807398333, guid: 6b23de57cfc972a478fec46c87ee8793, type: 3}
-  - {fileID: 8771573447706223679, guid: 584e59bf7843b194b8b68d767a9f718a, type: 3}
-  - {fileID: 5931987920008407607, guid: 8711d3c11c126d04bb5d301aab91a9be, type: 3}
-  - {fileID: 9134802078032649958, guid: b058e6eb431e9e44793efdd9875b5c5e, type: 3}
-  fruitSpawnY: 4
-  fruitToSpawn: 0
-  canSpawnFruit: 1
+  - {fileID: 4139873829757315078, guid: 3b9b1ffc3b39cfd41830a654049520cb, type: 3}
+  - {fileID: 6118833549292181001, guid: 6b23de57cfc972a478fec46c87ee8793, type: 3}
+  - {fileID: 5498643056669864029, guid: 584e59bf7843b194b8b68d767a9f718a, type: 3}
+  - {fileID: 8622639019782553333, guid: 97bc5e320b4ad7a4bae0d221243dca03, type: 3}
+  - {fileID: 1179187520130806983, guid: 8711d3c11c126d04bb5d301aab91a9be, type: 3}
+  - {fileID: 830397586221466601, guid: b058e6eb431e9e44793efdd9875b5c5e, type: 3}
+  - {fileID: 4293476509390874310, guid: 6ae6cc9d8125d144c847d06c80ec4622, type: 3}
 --- !u!4 &719062318
 Transform:
   m_ObjectHideFlags: 0
@@ -262,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 719062316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.056541532, y: 0.77903676, z: 0.035382982}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -3,32 +3,37 @@ using UnityEngine;
 
 public class FruitMerge : MonoBehaviour
 {
-    public Fruitfall fall;
-    public Fruit fruit;
-    private bool hasMerged = false;
-    private Vector2 destroyPos;
-    
+    private bool inAir = true;
+    private bool canDrop = false;
 
-    void Start()
+    void Update()
     {
-        fall = FindObjectOfType<Fruitfall>();
-        fruit = FindObjectOfType<Fruit>();
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == gameObject.tag && !fruit.mergeFruit)
+        if (inAir == true)
         {
-            Fruit.destroyPos = transform.position;
-            fruit.mergeFruit = true;
-            Fruit.whichFruit = int.Parse(gameObject.tag);
-            
-            Destroy(gameObject);
-            
+            canDrop = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true)
+        {
+            inAir = false;
+            canDrop = false;
+            GetComponent<Rigidbody2D>().gravityScale = 3;
+
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector3(mousePosition.x, transform.position.y, transform.position.z);
+            GameManager.canSpawn = true;
         }
     }
 
-    
-
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == gameObject.tag)
+        {
+            GameManager.spawnPos = transform.position;
+            GameManager.mergeFruit = true;
+            GameManager.whichFruit = int.Parse(gameObject.tag);
+            Destroy(gameObject);
+        }
+    }
 }
+

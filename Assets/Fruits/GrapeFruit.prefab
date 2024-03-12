@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2759253889000420529}
   - component: {fileID: -2376212993638456243}
   - component: {fileID: -8542149499411660696}
-  - component: {fileID: -4358856125215616411}
   - component: {fileID: 4116762421980000985}
   m_Layer: 0
   m_Name: GrapeFruit
@@ -135,20 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781f51dc5be9ab1439d8b2658246958a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mergedFruits: []
---- !u!114 &-4358856125215616411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8809794264898694318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b15a6ea931a344ebb093957140fafb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fruit: {fileID: 0}
 --- !u!50 &4116762421980000985
 Rigidbody2D:
   serializedVersion: 4
