@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour
         {
             mergeFruit = false;
             mergedFruit = Instantiate(fruits[whichFruit + 1], spawnPos, fruits[0].rotation);
-            Instantiate(mergeEffect, mergedFruit.position, mergedFruit.rotation);
+            GameObject effect = Instantiate(mergeEffect, mergedFruit.position, mergedFruit.rotation);
+            StartCoroutine(DestroyEffect(effect));
             AudioSystem.Play(mergeSound);
             score += 10;
             scoreTXT.text = score.ToString();
@@ -111,5 +112,11 @@ public class GameManager : MonoBehaviour
     void ReloadScene()
     {
         SceneManager.LoadScene("Fruits");
+    }
+
+    IEnumerator DestroyEffect(GameObject effect)
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(effect);
     }
 }
