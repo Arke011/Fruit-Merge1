@@ -6,6 +6,7 @@ public class FruitMerge : MonoBehaviour
     private bool inAir = true;
     private bool canDrop = false;
     public GameManager manager;
+    
 
 
     void Start()
