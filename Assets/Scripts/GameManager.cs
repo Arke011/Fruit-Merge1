@@ -26,7 +26,13 @@ public class GameManager : MonoBehaviour
     static public int totalCollisions;
 
     public GameObject barrier;
+
     
+
+    
+
+    
+
 
 
 
@@ -41,27 +47,40 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        
+        
         spawnFruit();
+        
+
         mergeFruits();
         Win();
-        
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             gameStartScreen.SetActive(false);
             barrier.SetActive(true);
+            
+            
         }
 
-        
-        
+
+
     }
 
     void spawnFruit()
     {
         if (canSpawn)
         {
-            StartCoroutine(spawnTimer());
+            
+            
+            Invoke("spawnTimer", 0.25f);
             canSpawn = false;
+            
+            
+            
+            
+            
+
         }
     }
 
@@ -94,12 +113,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public IEnumerator spawnTimer()
-    {
-        yield return new WaitForSeconds(0.75f);
-
+    void spawnTimer()
+    {     
         movementFruit = Instantiate(fruits[Random.Range(0, 4)], transform.position, fruits[0].rotation);
-        AudioSystem.Play(spawnSound);
+        AudioSystem.Play(spawnSound);           
     }
 
     void Win()

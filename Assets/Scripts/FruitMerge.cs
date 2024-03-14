@@ -4,6 +4,7 @@ using UnityEngine;
 public class FruitMerge : MonoBehaviour
 {
     private bool inAir = true;
+    
     private bool canDrop = false;
     public GameManager manager;
     
@@ -13,7 +14,8 @@ public class FruitMerge : MonoBehaviour
     {
         manager = FindObjectOfType<GameManager>();
     }
-    void Update()
+
+    async void Update()
     {
         if (inAir == true)
         {
@@ -21,26 +23,27 @@ public class FruitMerge : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop)
-        {
+        {       
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            
-            
+            if (mousePosition.x < -2.9 || mousePosition.x > 2.8) return;
+
             inAir = false;
             canDrop = false;
             GetComponent<Rigidbody2D>().gravityScale = 3;
 
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            manager.movementFruit.position = new Vector2(mousePosition.x, manager.movementFruit.position.y);
+            if (manager.movementFruit != null)
+            {
+                manager.movementFruit.position = new Vector2(mousePosition.x, manager.movementFruit.position.y);
+            }
 
-
-            GameManager.canSpawn = true;
-           
+            await new WaitForSeconds(1f);
             
-
-
-
+            GameManager.canSpawn = true;
         }
     }
+
+    
 
 
 
@@ -48,6 +51,7 @@ public class FruitMerge : MonoBehaviour
     {
         if (collision.gameObject.tag == gameObject.tag)
         {
+            
             GameManager.totalCollisions += 1;
 
             if (GameManager.totalCollisions < 3)
