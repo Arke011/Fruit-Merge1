@@ -10,4 +10,7 @@ How do I play the game?
 
 Play the game right here! - https://play.unity.com/mg/other/fruitmerge
 
+![image](https://github.com/Arke011/Fruit-Merge1/assets/146362737/a32b22e9-4c9e-4d66-bd65-56405184d215)
+
+
    
