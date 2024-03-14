@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text scoredTXT;
 
     static public int totalCollisions;
+
+    public GameObject barrier;
     
 
 
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             gameStartScreen.SetActive(false);
+            barrier.SetActive(true);
         }
 
         

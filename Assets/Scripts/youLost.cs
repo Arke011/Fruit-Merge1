@@ -13,7 +13,7 @@ public class youLost : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (!collision.gameObject.CompareTag("Ground") && transform.position.y > 1f)
+        if (!collision.gameObject.CompareTag("Ground") && transform.position.y > 1.6f)
         {
             Debug.Log("You just lost");
             manager.YouLostScreen.SetActive(true);
