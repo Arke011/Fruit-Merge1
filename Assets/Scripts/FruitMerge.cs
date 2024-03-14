@@ -48,10 +48,17 @@ public class FruitMerge : MonoBehaviour
     {
         if (collision.gameObject.tag == gameObject.tag)
         {
-            GameManager.spawnPos = transform.position;
-            GameManager.mergeFruit = true;
-            GameManager.whichFruit = int.Parse(gameObject.tag);
-            Destroy(gameObject);
+            GameManager.totalCollisions += 1;
+
+            if (GameManager.totalCollisions < 3)
+            {
+                GameManager.spawnPos = transform.position;
+                GameManager.mergeFruit = true;
+                GameManager.whichFruit = int.Parse(gameObject.tag);
+                Destroy(gameObject);
+            }
+            
+            
             
         }
     }

@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text youScoredTXT1;
     public TMP_Text scoredTXT;
 
+    static public int totalCollisions;
+    
+
 
 
 
@@ -67,6 +70,7 @@ public class GameManager : MonoBehaviour
             mergedFruit = Instantiate(fruits[whichFruit + 1], spawnPos, fruits[0].rotation);
             GameObject effect = Instantiate(mergeEffect, mergedFruit.position, mergedFruit.rotation);
             StartCoroutine(DestroyEffect(effect));
+            totalCollisions = 0;
             AudioSystem.Play(mergeSound);
             score += 10;
             scoreTXT.text = score.ToString();
@@ -90,6 +94,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator spawnTimer()
     {
         yield return new WaitForSeconds(0.75f);
+
         movementFruit = Instantiate(fruits[Random.Range(0, 4)], transform.position, fruits[0].rotation);
         AudioSystem.Play(spawnSound);
     }
