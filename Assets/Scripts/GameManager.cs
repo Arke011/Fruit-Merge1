@@ -27,11 +27,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject barrier;
 
-    
+    private bool posSet = false;
 
-    
 
-    
+
+
+
+
+
+
 
 
 
@@ -45,13 +49,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void Update()
+    async void Update()
     {
-        
-        
         spawnFruit();
-        
-
         mergeFruits();
         Win();
 
@@ -59,8 +59,29 @@ public class GameManager : MonoBehaviour
         {
             gameStartScreen.SetActive(false);
             barrier.SetActive(true);
-            
-            
+
+            if (movementFruit != null && !posSet)
+            {
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                if (mousePosition.x < -2.9 || mousePosition.x > 2.8) return;
+
+
+                movementFruit.GetComponent<Rigidbody2D>().gravityScale = 3;
+
+
+
+                movementFruit.position = new Vector2(mousePosition.x, movementFruit.position.y);
+
+                posSet = true;
+
+
+                await new WaitForSeconds(0.75f);
+                
+                canSpawn = true;
+            }
+
+
         }
 
 
@@ -71,15 +92,10 @@ public class GameManager : MonoBehaviour
     {
         if (canSpawn)
         {
-            
-            
-            Invoke("spawnTimer", 0.25f);
+
+
+            spawnTimer();
             canSpawn = false;
-            
-            
-            
-            
-            
 
         }
     }
@@ -97,12 +113,12 @@ public class GameManager : MonoBehaviour
             score += 10;
             scoreTXT.text = score.ToString();
 
-            
+
             Rigidbody2D mergedFruitRb = mergedFruit.GetComponent<Rigidbody2D>();
 
             if (mergedFruitRb != null)
             {
-                
+
                 mergedFruitRb.gravityScale = 3f;
             }
             else
@@ -114,9 +130,15 @@ public class GameManager : MonoBehaviour
 
 
     void spawnTimer()
-    {     
-        movementFruit = Instantiate(fruits[Random.Range(0, 4)], transform.position, fruits[0].rotation);
-        AudioSystem.Play(spawnSound);           
+    {
+        if (canSpawn)
+        {
+            movementFruit = Instantiate(fruits[Random.Range(0, 4)], transform.position, fruits[0].rotation);
+            AudioSystem.Play(spawnSound);
+            posSet = false;
+
+        }
+
     }
 
     void Win()
@@ -131,7 +153,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+
 
 
     void ReloadScene()
