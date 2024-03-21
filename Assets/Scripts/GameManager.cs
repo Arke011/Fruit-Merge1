@@ -158,6 +158,7 @@ public class GameManager : MonoBehaviour
 
     void ReloadScene()
     {
+        canSpawn = true;
         SceneManager.LoadScene("Fruits");
     }
 
